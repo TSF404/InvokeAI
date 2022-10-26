@@ -18,7 +18,7 @@ _This is a fork that uses InvokeAI to generate Minecraft images at realtime_
 1. cd to Project Directory
 2. Run the command 
 conda activate invokeai
-3. Then run the command: _python scripts\dc_capture.py)
+3. Then run the command: _python scripts\dc_capture.py_
 4. Give it a Session ID (any string that it will use to uniquely identify this session)
 5. On a seperate command window, repeat step 1 and 2 and run the command: _python scripts\dc_invoke.py_
 6. Ensure the Session ID entered matches both
