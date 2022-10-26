@@ -67,7 +67,7 @@ def getInitSettings(): # -DC-
         chosenPromptKey = settingsJSONData['defaultPromptKey']
         print("Setting Prompt Key to " + chosenPromptKey)
     chosenPrompt = settingsJSONData['prompts'][chosenPromptKey]
-    print(chosenPrompt)
+    print("[" + chosenPrompt + "]")
 
     chosenInDir = "outputs/img2img/img2img_input"
     chosenOutDir = "outputs/img2img/img2img_output"

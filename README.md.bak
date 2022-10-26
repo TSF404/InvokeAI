@@ -31,7 +31,7 @@ I've set it up so those two scripts can be run in any order when you begin.
 
 #### Prompt Settings
 
-- The settings to modify the prompts you choose between are in the settings.txt file
+- The settings to modify the prompts you choose between are in the settings.json file
 
 
 <div align="center">

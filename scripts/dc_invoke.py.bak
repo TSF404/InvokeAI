@@ -105,7 +105,7 @@ def getInvokeCommand(settings):  # command string
         
         latestImg = latestInImageFileName
 
-        command = PROMPT + " -I " + INPUT_FILEPATH + " -o "+OUTPUT_FOLDER+" -s "+str(SAMPLES)+" -W512 -H512 --fit --strength " + str(DENOISING)
+        command = PROMPT + " -I " + INPUT_FILEPATH + " -o "+OUTPUT_FOLDER+" -s "+str(SAMPLES)+" -S 12345 -W512 -H512 --fit --strength " + str(DENOISING)
 
         return command
     except KeyboardInterrupt:

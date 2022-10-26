@@ -8,6 +8,6 @@
 
   },
   "defaultPromptKey": "crochet",
-  "denoising": 0.48,
+  "denoising": 0.62,
   "samples": 35
 }

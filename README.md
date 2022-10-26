@@ -29,9 +29,11 @@ The dc_invoke.py is the main man in the middle, responsible for getting the scre
 I've set it up so those two scripts can be run in any order when you begin.
 
 
-#### Prompt Settings
+#### Additional Notes
 
 - The settings to modify the prompts you choose between are in the settings.json file
+- Session Identifier = Unique ID for Session (can be text / numbers)
+- Prompt Key = The key for a prompt. Stored in the settings.json file. Saves having to type the entire prompt out each time (just reference the prompt by a single word).
 
 
 <div align="center">

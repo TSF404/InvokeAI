@@ -164,7 +164,7 @@ def main_displayOutput(programState):
             emptyImg = img = Image.new("RGB", (512,512))
             tkimg = ImageTk.PhotoImage(emptyImg)
             label.config(image=tkimg)
-            label.image = tkimg
+            label.image = tkimg # save a reference to avoid garbage collected
 
         ms_delay = 50
         root.after(ms_delay, updateDisplay)
