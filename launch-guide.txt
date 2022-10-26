@@ -1,0 +1,5 @@
+--- Launch via Command Prompt:
+
+conda activate invokeai
+python scripts\invoke_minecraft.py
+

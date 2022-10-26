@@ -1,0 +1,24 @@
+
+--- COMMANDS:
+
+-w width
+-h height
+-s steps
+-n number of images
+-c cfg_scale
+-S seed
+-o<path> output
+
+img2img:
+-I<path> path for source
+-F fit to -h/-w dimensions
+-s<float> strength
+
+
+--- EXAMPLES:
+
+// create image
+baby frog -n2 -s150
+
+// img2img
+waterfall and rainbow -I inputs/wall.jpg -W512 -H512 --fit --strength 0.45

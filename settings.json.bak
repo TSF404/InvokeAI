@@ -1,0 +1,11 @@
+{
+  "prompts": {
+    "bunny": "crochet bunny with a scarf",
+    "landscape": "cinematic mountainscape highly detailed, epic, with old town by greg rutkowski",
+    "space": "colourful watercolor of astronaut in space surrounded by planets and stars",
+    "trippy": "goddess princess face close-up portrait ram skull abstract 3d composition. jellyfish phoenix head, nautilus, orchid, skull, betta fish, bioluminiscent creatures, intricate artwork by Tooth Wu and wlop and beeple. octane render, trending on artstation, greg rutkowski very coherent symmetrical artwork. cinematic, hyper realism, high detail, octane render, 8k"
+  },
+  "defaultPromptKey": "bunny",
+  "denoising": 0.48,
+  "samples": 35
+}

@@ -1,0 +1,90 @@
+
+import pygetwindow
+import time
+import pyautogui
+import PIL
+import time
+import random
+
+import socket
+
+'''
+UDP_IP = "10.10.10.107"
+UDP_PORT = 5005
+sock = socket.socket(socket.AF_INET, # Internet
+                     socket.SOCK_DGRAM) # UDP
+sock.bind((UDP_IP, UDP_PORT))
+'''
+
+
+WINDOW_PHRASE = "Minecraft 1.19"
+SAVE_FOLDER = "outputs/img-samples/img2img_input"
+SAVE_FOLDER_RAW = "outputs/img-samples/img2img_input/raw"
+
+
+filenum = 0
+
+
+
+def capture():
+    global filenum
+    filenum += 1
+    print("Capturing..")
+
+
+    TOP_CROP = 35
+    BOTTOM_CROP = 15
+    LEFT_CROP = 10
+    RIGHT_CROP = 10
+
+    filename = SAVE_FOLDER + '/result'+ str(random.randint(1,10000)) + "_" + str(filenum) +'.png'
+    filenameRaw = SAVE_FOLDER_RAW + '/result'+ str(random.randint(1,10000)) + "_" + str(filenum) +'.png'
+    
+    #first find window
+    windows = pygetwindow.getWindowsWithTitle(WINDOW_PHRASE)
+    myWindow = windows[0] 
+    
+    width = myWindow.width
+    height = myWindow.height
+    top = myWindow.top
+    left = myWindow.left
+    
+    # save screenshot
+    p = pyautogui.screenshot() 
+    p.save(filenameRaw) 
+
+    # edit screenshot
+    im = PIL.Image.open(filenameRaw)
+    im_crop = im.crop((left + LEFT_CROP, top + TOP_CROP, (left+width) - RIGHT_CROP, (top+height) - BOTTOM_CROP))
+    im_crop = im_crop.resize((512,512))
+    im_crop.save(filename, quality=100)
+
+
+
+
+while True:  # automode
+    capture()
+    time.sleep(0.5)
+
+'''
+
+while True:
+    data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
+    message = data.decode("utf-8").split(",")
+    if message[0] == "ACTION":
+        try:
+            capture()
+        except:
+            print("Capture Failed")
+    
+    
+
+'''
+
+    
+
+
+
+
+
+
