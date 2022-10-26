@@ -1,8 +1,8 @@
 <div align="center">
 
-# InvokeAI: A Stable Diffusion Toolkit (DiffusionCraft AI Fork)
+# DiffusionCraft AI (An InvokeAI Fork)
 
-_This is a fork that uses InvokeAI to generate Minecraft images at realtime_
+_This is a fork that uses InvokeAI to process Minecraft images at realtime_
 
 [![project logo](docs/assets/diffusioncraft.png)](https://www.youtube.com/watch?v=ThnAnva2RPY)
 
