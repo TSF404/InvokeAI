@@ -4,6 +4,8 @@
 
 _This is a fork that uses InvokeAI to generate Minecraft images at realtime_
 
+</div>
+
 ### DiffusionCraft AI Guide
 
 #### Installation
@@ -27,6 +29,8 @@ python scripts\dc_invoke.py
 
 - The settings to modify the prompts you choose between are in the settings.txt file
 
+
+<div align="center">
 # InvokeAI: A Stable Diffusion Toolkit
 
 _Formerly known as lstein/stable-diffusion_
