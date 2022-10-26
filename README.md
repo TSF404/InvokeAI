@@ -4,7 +4,7 @@
 
 _This is a fork that uses InvokeAI to generate Minecraft images at realtime_
 
-[project logo](docs/assets/diffusioncraft.png)
+![project logo](docs/assets/diffusioncraft.png)
 
 
 </div>
