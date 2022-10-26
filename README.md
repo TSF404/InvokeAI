@@ -42,8 +42,9 @@ I've set it up so those two scripts can be run in any order when you begin.
 - Prompt Key = The key for a prompt. Stored in the settings.json file. Saves having to type the entire prompt out each time (just reference the prompt by a single word).
 
 
+
 <div align="center">
-### InvokeAI: A Stable Diffusion Toolkit
+**InvokeAI: A Stable Diffusion Toolkit**
 
 _Formerly known as lstein/stable-diffusion_
 
