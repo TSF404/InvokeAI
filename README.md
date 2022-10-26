@@ -44,7 +44,7 @@ I've set it up so those two scripts can be run in any order when you begin.
 
 </br></br></br>
 <div align="center">
-<em>InvokeAI: A Stable Diffusion Toolkit</em>
+<b>InvokeAI: A Stable Diffusion Toolkit</b>
 
 _Formerly known as lstein/stable-diffusion_
 
