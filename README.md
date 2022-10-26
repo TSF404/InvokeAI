@@ -11,7 +11,10 @@ _This is a fork that uses InvokeAI to generate Minecraft images at realtime_
 #### Installation
 
 - Follow the installation guide below for regular InvokeAI
-- pip install pywin32 pyautogui PIL tkinter
+- pip install pywin32
+- pip install pyautogui
+- pip install PIL
+- pip install tkinter
 
 #### How to Use
 
