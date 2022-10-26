@@ -23,6 +23,10 @@ import tkinter as tk # -DC-
 import cv2 # -DC-
 import numpy  # -DC-
 
+
+
+MANUAL_TARGETING = True
+
 def getInRawDirPath(settings):
     return getInDirPath(settings) + "/" + settings["inRawDir"]
     
@@ -41,6 +45,7 @@ def getLatestImageInPath(dirpath, valid_extensions=('jpg','jpeg','png')):
     return max(valid_files, key=os.path.getmtime)
     
 def getInitSettings(): # -DC-
+
     print("\n\n\n---------------------")
     print("\nEnter a Session Identifier")
     print("(Blank input defaults it to 123)\n")
@@ -56,16 +61,31 @@ def getInitSettings(): # -DC-
     chosenInDir = "outputs/img2img/img2img_input"
     chosenOutDir = "outputs/img2img/img2img_output"
     
-    print("\n---------------------")
-    print("\nEnter Windows Title of Minecraft Window")
-    chosenMinecraftWindowTitle = input("Title > ")
-    if chosenMinecraftWindowTitle == "":
-        chosenMinecraftWindowTitle = "Snipping Tool" #---------------------------------------------------------------------------------- <<< FIX
-        print("Setting Window Title to " + chosenMinecraftWindowTitle)
+    if MANUAL_TARGETING:
+        print("\n---------------------")
+        print("\nPosition your mouse at the top left corner")
+        input("Done > ")
+        mouseTopLeft = pyautogui.position()
+        print(mouseTopLeft)
+        print("\nPosition your mouse at the bottom right corner")
+        input("Done > ")
+        mouseBottomRight = pyautogui.position()
+        chosenMinecraftWindowTitle=0
+        
+    else:
+        print("\n---------------------")
+        print("\nEnter Windows Title of Minecraft Window")
+        chosenMinecraftWindowTitle = input("Title > ")
+        if chosenMinecraftWindowTitle == "":
+            chosenMinecraftWindowTitle = "Snipping Tool"
+            print("Setting Window Title to " + chosenMinecraftWindowTitle)
+        mouseTopLeft=(0,0)
+        mouseBottomRight=(0,0)
     
 
     return {"sessionID":chosenID, 
             "gameWindowTitle":chosenMinecraftWindowTitle,
+            "mouseCoords":[mouseTopLeft[0], mouseTopLeft[1], mouseBottomRight[0], mouseBottomRight[1]],
             "inRawDir":chosenInRawDir, "inDir":chosenInDir, "outDir":chosenOutDir}
 
 def createInitDir(settings):
@@ -78,6 +98,7 @@ def createInitDir(settings):
 
 def main_captureMinecraft(args):
 
+
     def capture(fileNum):
         filenameRaw = "raw_" + str(fileNum) + ".png"
         filepathRaw = getInRawDirPath(programState["settings"]) + "/" + filenameRaw
@@ -87,8 +108,11 @@ def main_captureMinecraft(args):
         p.save(filepathRaw) 
         
         # setup crop boundaries
-        gameWindow = win32gui.FindWindowEx(None, None, None, programState["settings"]["gameWindowTitle"])
-        rect = win32gui.GetWindowRect(gameWindow)
+        if MANUAL_TARGETING:
+            rect = programState["settings"]["mouseCoords"]
+        else:
+            gameWindow = win32gui.FindWindowEx(None, None, None, programState["settings"]["gameWindowTitle"])
+            rect = win32gui.GetWindowRect(gameWindow)
         
         left = rect[0]
         top = rect[1]
@@ -99,6 +123,8 @@ def main_captureMinecraft(args):
         BOTTOM_CROP = 15
         LEFT_CROP = 10
         RIGHT_CROP = 10
+        
+        print(left,top,right,bottom)
         
         # save cropped screenshot
         filenameCropped = "in_" + str(fileNum) + ".png" 
@@ -124,12 +150,12 @@ def main_captureMinecraft(args):
         timeCounter += deltaTime
         
         if timeCounter > INTERVAL:
-            try:
-                capture(fileCounter)
-                fileCounter += 1
-                timeCounter = 0
-            except:
-                print("[Capture]: Error Capturing failed")
+            #try:
+            capture(fileCounter)
+            fileCounter += 1
+            timeCounter = 0
+            #except:
+            #    print("[Capture]: Error Capturing failed")
         
         if programState["sequence"] == "END": 
             break
@@ -164,7 +190,7 @@ def main_displayOutput(programState):
             emptyImg = img = Image.new("RGB", (512,512))
             tkimg = ImageTk.PhotoImage(emptyImg)
             label.config(image=tkimg)
-            label.image = tkimg # save a reference to avoid garbage collected
+            label.image = tkimg
 
         ms_delay = 50
         root.after(ms_delay, updateDisplay)

@@ -3,11 +3,15 @@
     "crochet": "crochet bunny with a scarf",
     "landscape": "cinematic mountainscape highly detailed, epic, with old town by greg rutkowski",
     "space": "colourful watercolor of astronaut in space surrounded by planets and stars",
-    "trippy": "goddess princess face close-up portrait ram skull abstract 3d composition. jellyfish phoenix head, nautilus, orchid, skull, betta fish, bioluminiscent creatures, intricate artwork by Tooth Wu and wlop and beeple. octane render, trending on artstation, greg rutkowski very coherent symmetrical artwork. cinematic, hyper realism, high detail, octane render, 8k",
-    "face": "realistic photo of a human face, portrait, sketch"
+    "trippy": "god prince face close-up portrait ram skull abstract 3d composition. jellyfish phoenix head, nautilus, orchid, skull, betta fish, bioluminiscent creatures, intricate artwork by Tooth Wu and wlop and beeple. octane render, trending on artstation, greg rutkowski very coherent symmetrical artwork. cinematic, hyper realism, high detail, octane render, 8k",
+    "face": "realistic photo of a human face, portrait, sketch",
+    "live": "realistic full body, Portrait painting of Donnie Yen as Cyborg Power Ranger, made by Michaelangelo, physical painting, Sharp focus,digital art, bright colors,fine art, trending on Artstation, unreal engine",
+    "puppet": "photo of a sock puppet, muppet, highly detailed, 4k",
+    "powerranger": "realistic full body, Portrait painting of Tom Hiddleston as Cyborg Power Ranger, made by Michaelangelo, physical painting, Sharp focus,digital art, bright colors,fine art, trending on Artstation, unreal engine"
+
 
   },
   "defaultPromptKey": "crochet",
-  "denoising": 0.62,
+  "denoising": 0.85,
   "samples": 35
 }
