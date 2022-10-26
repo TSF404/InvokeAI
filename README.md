@@ -16,12 +16,18 @@ _This is a fork that uses InvokeAI to generate Minecraft images at realtime_
 #### How to Use
 
 1. cd to Project Directory
-2. Run the command 
-conda activate invokeai
+2. Run the command _conda activate invokeai_
 3. Then run the command: _python scripts\dc_capture.py_
 4. Give it a Session ID (any string that it will use to uniquely identify this session)
 5. On a seperate command window, repeat step 1 and 2 and run the command: _python scripts\dc_invoke.py_
 6. Ensure the Session ID entered matches both
+
+#### How it Works
+
+The dc_capture.py is responsible for both capturing screenshots from Minecraft, as well as displaying the latest image from Invoke's Stable Diffusion output.
+The dc_invoke.py is the main man in the middle, responsible for getting the screenshots captured from dc_capture, processing them through Stable Diffusion, and saving them.
+I've set it up so they can be run in any order when you begin.
+
 
 #### Prompt Settings
 
