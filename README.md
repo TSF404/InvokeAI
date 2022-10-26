@@ -26,7 +26,7 @@ _This is a fork that uses InvokeAI to generate Minecraft images at realtime_
 
 The dc_capture.py is responsible for both capturing screenshots from Minecraft, as well as displaying the latest image from Invoke's Stable Diffusion output.
 The dc_invoke.py is the main man in the middle, responsible for getting the screenshots captured from dc_capture, processing them through Stable Diffusion, and saving them.
-I've set it up so they can be run in any order when you begin.
+I've set it up so those two scripts can be run in any order when you begin.
 
 
 #### Prompt Settings
