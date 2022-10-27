@@ -108,7 +108,7 @@ def getInvokeCommand(settings):  # command string
         OUTPUT_FOLDER = settings["outDir"]+"_"+settings["sessionID"]
         SAMPLES = settings['samples']
         DENOISING = settings['denoising']
-        PROMPT = settings['prompt']
+        PROMPT = settings['prompt'].replace("-","").replace("+","")
         
         #print("Latest Image: " + latestInImageFileName)
         if latestImg == latestInImageFileName:

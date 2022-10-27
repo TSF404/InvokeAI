@@ -97,9 +97,8 @@ def getInvokeCommand(settings):  # command string
             settingsJSONData = json.load(open( os.getcwd() + "/settings.json"))
             settings['samples'] = settingsJSONData['samples']
             settings['denoising'] = settingsJSONData['denoising']
+            settings['prompt'] = settingsJSONData['prompts'][settings['promptKey']]
             
-            
-        
         
         latestInImage = getLatestImageInPath(getInDirPath(settings), ".png")
         
@@ -109,7 +108,7 @@ def getInvokeCommand(settings):  # command string
         OUTPUT_FOLDER = settings["outDir"]+"_"+settings["sessionID"]
         SAMPLES = settings['samples']
         DENOISING = settings['denoising']
-        PROMPT = settings['prompt']
+        PROMPT = settings['prompt'].replace("-","")
         
         #print("Latest Image: " + latestInImageFileName)
         if latestImg == latestInImageFileName:

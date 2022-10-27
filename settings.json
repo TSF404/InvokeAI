@@ -5,13 +5,14 @@
     "space": "colourful watercolor of astronaut in space surrounded by planets and stars",
     "trippy": "god prince face close-up portrait ram skull abstract 3d composition. jellyfish phoenix head, nautilus, orchid, skull, betta fish, bioluminiscent creatures, intricate artwork by Tooth Wu and wlop and beeple. octane render, trending on artstation, greg rutkowski very coherent symmetrical artwork. cinematic, hyper realism, high detail, octane render, 8k",
     "face": "realistic photo of a human face, portrait, sketch",
-    "live": "realistic full body, Portrait painting of Donnie Yen as Cyborg Power Ranger, made by Michaelangelo, physical painting, Sharp focus,digital art, bright colors,fine art, trending on Artstation, unreal engine",
+    "live": "photo of a cow",
     "puppet": "photo of a sock puppet, muppet, highly detailed, 4k",
+    "mechanical": "complex 3 d render hyper detail portrait of a mechanical cyborg robot, sci fi, full body, intricate, art by kazuhiko nakamura and hajime sorayama, 8 k octane detailed render, post processing, extremely hyperdetailed, intricate futuristic mechanic parts, maya, dark background, sharp focus, blender, cinematic lighting masterpiece, trending on artstation ",
     "powerranger": "realistic full body, Portrait painting of Tom Hiddleston as Cyborg Power Ranger, made by Michaelangelo, physical painting, Sharp focus,digital art, bright colors,fine art, trending on Artstation, unreal engine"
 
 
   },
   "defaultPromptKey": "crochet",
-  "denoising": 0.85,
+  "denoising": 0.6,
   "samples": 35
 }
