@@ -158,8 +158,9 @@ def main_captureGame(args):
         screenshotCropped.save(filepathCropped, quality=100)
         
         print("[Capture]: Saved " + filepathCropped)
-        
-    INTERVAL = 1
+
+    settingsJSONData = json.load(open(os.getcwd() + "/settings.json"))
+    INTERVAL = settingsJSONData["captureInterval"]
     
     prevTime = datetime.datetime.now()
     timeCounter = 0

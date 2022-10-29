@@ -21,6 +21,7 @@
   "defaultPromptKey": "crochet",
   "denoising": 0.54,
   "samples": 35,
-  "windowTargeting": true
+  "windowTargeting": false,
+  "captureInterval": 0.3
 
 }
