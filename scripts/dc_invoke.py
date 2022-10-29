@@ -683,12 +683,15 @@ def prepare_image_metadata(
         first_seed=None
 ):
     global COMMAND_ID
-    
+
+
+    latestInImage = getLatestImageInPath(getInDirPath(settings), ".png")  
+    latestInImageFileName = os.path.basename(latestInImage).replace(".png","").replace("in_","")
 
     if postprocessed and opt.save_original:
         filename = choose_postprocess_name(opt,prefix,seed)
     else:
-        filename = f'{seed}_{COMMAND_ID}.png'
+        filename = f'out_{latestInImageFileName}.png'#  {seed}_{COMMAND_ID}.png'
 
     if opt.variation_amount > 0:
         first_seed             = first_seed or seed
