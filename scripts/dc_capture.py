@@ -41,6 +41,26 @@ def getLatestImageInPath(dirpath, valid_extensions=('jpg','jpeg','png')):
     if not valid_files:
         raise ValueError("No valid images in %s" % dirpath)
     return max(valid_files, key=os.path.getmtime)
+
+def findBestMatchingWindowTitle(chosenTitle, fallbackTitle):
+    foundMatchingWindow = False
+    foundBestMatch = False
+    for window in pyautogui.getAllWindows():
+        if chosenTitle == window.title:
+            foundMatchingWindow = True
+        elif chosenTitle in window.title: # Search for the best matching title (contains letters + least characters in title)
+            if foundBestMatch:
+                if len(window.title) < len(bestMatch):
+                    bestMatch = window.title
+            else:
+                bestMatch = window.title
+            foundBestMatch = True
+    if not foundMatchingWindow:
+        if foundBestMatch:
+            chosenTitle = bestMatch
+        else:
+            chosenTitle = DEFAULT_WINDOW
+    return chosenTitle, foundMatchingWindow, foundBestMatch
     
 def getInitSettings(): # -DC-
     global WINDOW_TARGETING, DEFAULT_WINDOW
@@ -71,24 +91,9 @@ def getInitSettings(): # -DC-
         if chosenGameWindowTitle == "":
             chosenGameWindowTitle = DEFAULT_WINDOW
         else:
-            foundMatchingWindow = False
-            foundBestMatch = False
-            for window in pyautogui.getAllWindows():
-                if chosenGameWindowTitle == window.title:
-                    foundMatchingWindow = True
-                elif chosenGameWindowTitle in window.title: # Search for the best matching title (contains letters + least characters in title)
-                    if foundBestMatch:
-                        if len(window.title) < len(bestMatch):
-                            bestMatch = window.title
-                    else:
-                        bestMatch = window.title
-                    foundBestMatch = True
-            if not foundMatchingWindow:
-                if foundBestMatch:
-                    chosenGameWindowTitle = bestMatch
-                else:
-                    chosenGameWindowTitle = DEFAULT_WINDOW
-                    
+            chosenGameWindowTitle, status01, status02 = findBestMatchingWindowTitle(chosenGameWindowTitle, DEFAULT_WINDOW)
+            print("Found Matching Window? " + str(status01))
+            print("Found Estimated Match? " + str(status02))                
                     
             
         print("Setting Window Title to " + chosenGameWindowTitle)
@@ -105,7 +110,6 @@ def getInitSettings(): # -DC-
         mouseBottomRight = pyautogui.position()
         chosenGameWindowTitle=0
 
-    input("-")
     print("\n---------------------\n")
     return {"sessionID":chosenID, 
             "gameWindowTitle":chosenGameWindowTitle,
