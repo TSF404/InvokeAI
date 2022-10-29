@@ -18,10 +18,6 @@ test-tube>=0.7.5
 torch-fidelity==0.3.0
 torchmetrics==0.6.0
 transformers==4.21.3
-pywin32
-pyautogui
-PIL
-tkinter
 -e git+https://github.com/openai/CLIP.git@main#egg=clip
 -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
 -e git+https://github.com/lstein/k-diffusion.git@master#egg=k-diffusion

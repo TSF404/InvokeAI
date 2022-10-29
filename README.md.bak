@@ -1,8 +1,11 @@
 <div align="center">
 
-# InvokeAI: A Stable Diffusion Toolkit (DiffusionCraft AI Fork)
+# DiffusionCraft AI (An InvokeAI Fork)
 
-_This is a fork that uses InvokeAI to generate Minecraft images at realtime_
+_This is a fork that uses InvokeAI to process Minecraft images at realtime_
+
+[![project logo](docs/assets/diffusioncraft.png)](https://www.youtube.com/watch?v=ThnAnva2RPY)
+
 
 </div>
 
@@ -11,7 +14,10 @@ _This is a fork that uses InvokeAI to generate Minecraft images at realtime_
 #### Installation
 
 - Follow the installation guide below for regular InvokeAI
-- pip install pywin32 pyautogui PIL tkinter
+- pip install pywin32
+- pip install pyautogui
+- pip install PIL
+- pip install tkinter
 
 #### How to Use
 
@@ -29,13 +35,16 @@ The dc_invoke.py is the main man in the middle, responsible for getting the scre
 I've set it up so those two scripts can be run in any order when you begin.
 
 
-#### Prompt Settings
+#### Additional Notes
 
 - The settings to modify the prompts you choose between are in the settings.json file
+- Session Identifier = Unique ID for Session (can be text / numbers)
+- Prompt Key = The key for a prompt. Stored in the settings.json file. Saves having to type the entire prompt out each time (just reference the prompt by a single word).
 
 
+</br></br></br>
 <div align="center">
-# InvokeAI: A Stable Diffusion Toolkit
+<b>InvokeAI: A Stable Diffusion Toolkit</b>
 
 _Formerly known as lstein/stable-diffusion_
 
