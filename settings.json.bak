@@ -1,11 +1,27 @@
 {
   "prompts": {
-    "bunny": "crochet bunny with a scarf",
+    "crochet": "crochet bunny with a scarf",
     "landscape": "cinematic mountainscape highly detailed, epic, with old town by greg rutkowski",
     "space": "colourful watercolor of astronaut in space surrounded by planets and stars",
-    "trippy": "goddess princess face close-up portrait ram skull abstract 3d composition. jellyfish phoenix head, nautilus, orchid, skull, betta fish, bioluminiscent creatures, intricate artwork by Tooth Wu and wlop and beeple. octane render, trending on artstation, greg rutkowski very coherent symmetrical artwork. cinematic, hyper realism, high detail, octane render, 8k"
+    "trippy": "god prince face close-up portrait ram skull abstract 3d composition. jellyfish phoenix head, nautilus, orchid, skull, betta fish, bioluminiscent creatures, intricate artwork by Tooth Wu and wlop and beeple. octane render, trending on artstation, greg rutkowski very coherent symmetrical artwork. cinematic, hyper realism, high detail, octane render, 8k",
+    "face": "realistic photo of a human face, portrait, sketch",
+    "jungle": "detailed photo of a fan-palm plant in a junglescape",
+    "cybercity": "panoramic photo of a neon cyberpunk city skyline, detailed, high resolution, infocus",
+    "robot": "octane render of a cute retro robot",
+    "hand": "a photorealistic hand",
+    "bike": "a beautiful storybook painting of a vintage Schwinn bicycle with a basket of flowers on the front propped up against a wall, anime style by Grzegorz greg rutkowski and Studio Ghibli, nostalgic heart-warming, trending on artstation hq",
+    "skull": "realistic skull with horns, portrait, powerful, intricate, elegant, volumetric lighting, scenery, digital painting, highly detailed, artstation, sharp focus, illustration, concept art, ruan jia, steve mccurry",
+    "ladybug": "HD nature photography of ladybug",
+    "puppet": "photo of a sock puppet, muppet, highly detailed, 4k",
+    "mechanical": "complex 3 d render hyper detail portrait of a mechanical cyborg robot, sci fi, full body, intricate, art by kazuhiko nakamura and hajime sorayama, 8 k octane detailed render, post processing, extremely hyperdetailed, intricate futuristic mechanic parts, maya, dark background, sharp focus, blender, cinematic lighting masterpiece, trending on artstation ",
+    "powerranger": "realistic full body, Portrait painting of Tom Hiddleston as Cyborg Power Ranger, made by Michaelangelo, physical painting, Sharp focus,digital art, bright colors,fine art, trending on Artstation, unreal engine",
+    "live": "replace me with a prompt"
+
   },
-  "defaultPromptKey": "bunny",
-  "denoising": 0.48,
-  "samples": 35
+  "defaultPromptKey": "crochet",
+  "denoising": 0.54,
+  "samples": 35,
+  "windowTargeting": false,
+  "captureInterval": 0.3
+
 }
