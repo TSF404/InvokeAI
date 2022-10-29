@@ -25,7 +25,7 @@ import json # -DC-
 
 LIVE_PROMPT_EDIT = True # This means it will change midway when you edit the settings.json
 latestImg = ""
-INIT_SETTINGS = 0
+CURRENT_OUT_FILENAME = ""
     
 def getInDirPath(settings):
     return os.getcwd() + "/" + settings["inDir"]+"_"+settings["sessionID"]
@@ -89,7 +89,7 @@ def createInitDir(settings):
 
 def getInvokeCommand(settings):  # command string
     try:
-        global latestImg, LIVE_PROMPT_EDIT
+        global latestImg, LIVE_PROMPT_EDIT, CURRENT_OUT_FILENAME
         
         
         
@@ -101,8 +101,8 @@ def getInvokeCommand(settings):  # command string
             
         
         latestInImage = getLatestImageInPath(getInDirPath(settings), ".png")
-        
         latestInImageFileName = os.path.basename(latestInImage)
+        CURRENT_OUT_FILENAME = latestInImageFileName.replace(".png","").replace("in_","")
         
         INPUT_FILEPATH = settings["inDir"]+"_"+settings["sessionID"] + "/" + latestInImageFileName
         OUTPUT_FOLDER = settings["outDir"]+"_"+settings["sessionID"]
@@ -680,15 +680,13 @@ def prepare_image_metadata(
         postprocessed=False,
         first_seed=None
 ):
-    global INIT_SETTINGS
+    global CURRENT_OUT_FILENAME
 
-    latestInImage = getLatestImageInPath(getInDirPath(INIT_SETTINGS), ".png")  
-    latestInImageFileName = os.path.basename(latestInImage).replace(".png","").replace("in_","")
 
     if postprocessed and opt.save_original:
         filename = choose_postprocess_name(opt,prefix,seed)
     else:
-        filename = f'out_{latestInImageFileName}.png'
+        filename = f'out_{CURRENT_OUT_FILENAME}.png'
 
     if opt.variation_amount > 0:
         first_seed             = first_seed or seed
