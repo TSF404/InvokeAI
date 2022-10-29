@@ -1,6 +1,6 @@
 
 #
-#   This script is used to capture the Minecraft window
+#   This script is used to capture the Game Window
 #   as well as display the Stable Diffusion output
 #
 
@@ -25,10 +25,8 @@ import numpy  # -DC-
 
 
 
-MANUAL_TARGETING = True
-
-def getInRawDirPath(settings):
-    return getInDirPath(settings) + "/" + settings["inRawDir"]
+WINDOW_TARGETING = True
+DEFAULT_WINDOW = "Snipping Tool"
     
 def getInDirPath(settings):
     return os.getcwd() + "/" + settings["inDir"]+"_"+settings["sessionID"]
@@ -45,6 +43,7 @@ def getLatestImageInPath(dirpath, valid_extensions=('jpg','jpeg','png')):
     return max(valid_files, key=os.path.getmtime)
     
 def getInitSettings(): # -DC-
+    global WINDOW_TARGETING, DEFAULT_WINDOW
 
     print("\n\n\n---------------------")
     print("\nEnter a Session Identifier")
@@ -54,65 +53,85 @@ def getInitSettings(): # -DC-
         chosenID = "123"
         print("Setting ID to " + chosenID)
     
-    settingsJSONData = json.load(open( os.getcwd() + "/settings.json"))
+    settingsJSONData = json.load(open(os.getcwd() + "/settings.json"))
+    WINDOW_TARGETING = settingsJSONData["windowTargeting"]
 
-
-    chosenInRawDir = "raw"
     chosenInDir = "outputs/img2img/img2img_input"
     chosenOutDir = "outputs/img2img/img2img_output"
     
-    if MANUAL_TARGETING:
+    if WINDOW_TARGETING:
+        print("\n---------------------")
+        print("\nActive Windows:\n")
+        for window in pyautogui.getAllWindows():
+            if window.title.strip() != "":
+                print(window.title)
+        print("")
+        print("\nEnter Windows Title of Game Window from the list above\n")
+        chosenGameWindowTitle = input("Title > ")
+        if chosenGameWindowTitle == "":
+            chosenGameWindowTitle = DEFAULT_WINDOW
+        else:
+            foundMatchingWindow = False
+            foundBestMatch = False
+            for window in pyautogui.getAllWindows():
+                if chosenGameWindowTitle == window.title:
+                    foundMatchingWindow = True
+                elif chosenGameWindowTitle in window.title: # Search for the best matching title (contains letters + least characters in title)
+                    if foundBestMatch:
+                        if len(window.title) < len(bestMatch):
+                            bestMatch = window.title
+                    else:
+                        bestMatch = window.title
+                    foundBestMatch = True
+            if not foundMatchingWindow:
+                if foundBestMatch:
+                    chosenGameWindowTitle = bestMatch
+                else:
+                    chosenGameWindowTitle = DEFAULT_WINDOW
+                    
+                    
+            
+        print("Setting Window Title to " + chosenGameWindowTitle)
+        mouseTopLeft=(0,0)
+        mouseBottomRight=(0,0)
+    else:
         print("\n---------------------")
         print("\nPosition your mouse at the top left corner")
-        input("Done > ")
+        input("Press Enter > ")
         mouseTopLeft = pyautogui.position()
         print(mouseTopLeft)
         print("\nPosition your mouse at the bottom right corner")
-        input("Done > ")
+        input("Press Enter > ")
         mouseBottomRight = pyautogui.position()
-        chosenMinecraftWindowTitle=0
-        
-    else:
-        print("\n---------------------")
-        print("\nEnter Windows Title of Minecraft Window")
-        chosenMinecraftWindowTitle = input("Title > ")
-        if chosenMinecraftWindowTitle == "":
-            chosenMinecraftWindowTitle = "Snipping Tool"
-            print("Setting Window Title to " + chosenMinecraftWindowTitle)
-        mouseTopLeft=(0,0)
-        mouseBottomRight=(0,0)
-    
+        chosenGameWindowTitle=0
 
+    input("-")
+    print("\n---------------------\n")
     return {"sessionID":chosenID, 
-            "gameWindowTitle":chosenMinecraftWindowTitle,
+            "gameWindowTitle":chosenGameWindowTitle,
             "mouseCoords":[mouseTopLeft[0], mouseTopLeft[1], mouseBottomRight[0], mouseBottomRight[1]],
-            "inRawDir":chosenInRawDir, "inDir":chosenInDir, "outDir":chosenOutDir}
+            "inDir":chosenInDir, "outDir":chosenOutDir}
 
 def createInitDir(settings):
-    if not os.path.exists(getInRawDirPath(settings)):
-        os.makedirs(getInRawDirPath(settings))
     if not os.path.exists(getInDirPath(settings)):
         os.makedirs(getInDirPath(settings))
     if not os.path.exists(getOutDirPath(settings)):
         os.makedirs(getOutDirPath(settings))
 
-def main_captureMinecraft(args):
-
-
+def main_captureGame(args):
+    global WINDOW_TARGETING
+    
     def capture(fileNum):
-        filenameRaw = "raw_" + str(fileNum) + ".png"
-        filepathRaw = getInRawDirPath(programState["settings"]) + "/" + filenameRaw
                 
         # save screenshot
-        p = pyautogui.screenshot() 
-        p.save(filepathRaw) 
+        screenshotImage = pyautogui.screenshot() 
         
         # setup crop boundaries
-        if MANUAL_TARGETING:
-            rect = programState["settings"]["mouseCoords"]
-        else:
+        if WINDOW_TARGETING:
             gameWindow = win32gui.FindWindowEx(None, None, None, programState["settings"]["gameWindowTitle"])
             rect = win32gui.GetWindowRect(gameWindow)
+        else:
+            rect = programState["settings"]["mouseCoords"]
         
         left = rect[0]
         top = rect[1]
@@ -130,10 +149,9 @@ def main_captureMinecraft(args):
         filenameCropped = "in_" + str(fileNum) + ".png" 
         filepathCropped = getInDirPath(programState["settings"]) + "/" + filenameCropped
         
-        im = Image.open(filepathRaw)
-        im_crop = im.crop((left + LEFT_CROP, top + TOP_CROP, right - RIGHT_CROP, bottom - BOTTOM_CROP))
-        im_crop = im_crop.resize((512,512))
-        im_crop.save(filepathCropped, quality=100)
+        screenshotCropped = screenshotImage.crop((left + LEFT_CROP, top + TOP_CROP, right - RIGHT_CROP, bottom - BOTTOM_CROP))
+        screenshotCropped = screenshotCropped.resize((512,512))
+        screenshotCropped.save(filepathCropped, quality=100)
         
         print("[Capture]: Saved " + filepathCropped)
         
@@ -204,9 +222,9 @@ def main_displayOutput(programState):
 
 
 def signal_handler(signum, frame):
-    global programState, captureMinecraftThread
+    global programState, captureGameThread
     programState["sequence"] = "END"
-    captureMinecraftThread.join() 
+    captureGameThread.join() 
     sys.exit(0)
 
 if __name__ == '__main__':
@@ -218,9 +236,9 @@ if __name__ == '__main__':
 
     programState = {"sequence":"BEGIN", "settings":initSettings}
     
-    captureMinecraftThread = Thread(target = main_captureMinecraft, args =(lambda : programState,))
+    captureGameThread = Thread(target = main_captureGame, args =(lambda : programState,))
 
-    captureMinecraftThread.start()
+    captureGameThread.start()
     
     main_displayOutput(programState)
 

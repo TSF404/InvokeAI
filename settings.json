@@ -20,5 +20,7 @@
   },
   "defaultPromptKey": "crochet",
   "denoising": 0.54,
-  "samples": 35
+  "samples": 35,
+  "windowTargeting": true
+
 }
