@@ -25,7 +25,7 @@ import json # -DC-
 
 LIVE_PROMPT_EDIT = True # This means it will change midway when you edit the settings.json
 latestImg = ""
-COMMAND_ID = 0
+INIT_SETTINGS = 0
     
 def getInDirPath(settings):
     return os.getcwd() + "/" + settings["inDir"]+"_"+settings["sessionID"]
@@ -214,7 +214,6 @@ def main_invoke(settings):
 
 # TODO: main_loop() has gotten busy. Needs to be refactored.
 def main_loop(gen, opt, infile, settings):
-    global COMMAND_ID
 
     """prompt/read/execute loop"""
     done = False
@@ -254,7 +253,6 @@ def main_loop(gen, opt, infile, settings):
             done = True
             continue
         print("[Invoke]: Running Command " + str(command))
-        COMMAND_ID += 1
 
         # skip empty lines
         if not command.strip():
@@ -682,16 +680,15 @@ def prepare_image_metadata(
         postprocessed=False,
         first_seed=None
 ):
-    global COMMAND_ID
+    global INIT_SETTINGS
 
-
-    latestInImage = getLatestImageInPath(getInDirPath(settings), ".png")  
+    latestInImage = getLatestImageInPath(getInDirPath(INIT_SETTINGS), ".png")  
     latestInImageFileName = os.path.basename(latestInImage).replace(".png","").replace("in_","")
 
     if postprocessed and opt.save_original:
         filename = choose_postprocess_name(opt,prefix,seed)
     else:
-        filename = f'out_{latestInImageFileName}.png'#  {seed}_{COMMAND_ID}.png'
+        filename = f'out_{latestInImageFileName}.png'
 
     if opt.variation_amount > 0:
         first_seed             = first_seed or seed
@@ -822,13 +819,11 @@ def retrieve_dream_command(opt,file_path,completer):
 
 
 if __name__ == '__main__':
- 
-    initSettings = getInitSettings() # -DC-
-    createInitDir(initSettings)
     
-    # Sets command ID to continue from the last frame in directory
-    COMMAND_ID = len(os.listdir(getOutDirPath(initSettings)))
+    INIT_SETTINGS = getInitSettings() # -DC-
+    createInitDir(INIT_SETTINGS)
     
-    main_invoke(initSettings)
+    
+    main_invoke(INIT_SETTINGS)
     
     
