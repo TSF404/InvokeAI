@@ -13,7 +13,7 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 
 #### Installation
 
-- Follow the installation guide below for regular InvokeAI
+- Follow the installation guide below for regular InvokeAI except instead of _conda activate invokeai_, run _conda activate diffusioncraft_.
 
 #### How to Use
 
