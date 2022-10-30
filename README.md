@@ -43,9 +43,9 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 
 - There are two main scripts in this repo: scripts/dc_invoke.py and scripts/dc_capture.py
 - dc_capture is used to take a screen capture of the game window
-- dc_invoke searches for the newest screen capture in the outputs/img2img/{SESSION_ID}_input folder
-- When dc_invoke finds a new image, it runs it through Stable Diffusion via Invoke AI, and outputs it into the outputs/img2img/{SESSION_ID}_output folder
-- dc_capture also searches for the newest Stable Diffusion processed image in the outputs/img2img/{SESSION_ID}_output folder
+- dc_invoke searches for the newest screen capture in the outputs/img2img/{SESSION_ID}_<b>input</b> folder
+- When dc_invoke finds a new image, it runs it through Stable Diffusion via Invoke AI, and outputs it into the outputs/img2img/{SESSION_ID}_<b>output</b> folder
+- dc_capture also searches for the newest Stable Diffusion processed image in the outputs/img2img/{SESSION_ID}_<b>output</b> folder
 - When dc_capture finds a new image, it displays it via the tk library
 
 #### Additional Notes
