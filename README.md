@@ -13,12 +13,12 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 
 #### Installation
 
-- Follow the installation guide below for regular InvokeAI [following these instructions](https://invoke-ai.github.io/InvokeAI/installation/INSTALL_WINDOWS/):
+- Follow the installation guide below for regular InvokeAI [following the Windows instructions](https://invoke-ai.github.io/InvokeAI/installation/INSTALL_WINDOWS/):
 </br> Installing anaconda
 </br> Cloning this repo
 </br> cd to repo
 </br> conda env create
-</br> Instead of _conda activate invokeai_, run _conda activate diffusioncraft_.
+</br> Instead of _conda activate invokeai_, run _conda activate diffusioncraft_
 </br> Download the latest sd checkpoint into models/ldm/stable-diffusion-v1\model.ckpt (Ensure it's named model.ckpt)
 - Proceed to How to Use.
 
@@ -37,7 +37,7 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 2. Run the command _conda activate diffusioncraft_
 3. Then run the command: _python scripts\dc_invoke.py_
 4. Enter the same Session ID you used for Stage B.
-5. Enter the prompt key from the list.
+5. Enter a prompt key from the list.
 
 #### How it Works
 
@@ -52,7 +52,7 @@ I've set it up so those two scripts can be run in any order when you begin.
 - Session Identifier = Unique ID for Session (can be text / numbers)
 - Prompt Key = The key for a prompt. Stored in the settings.json file. Saves having to type the entire prompt out each time (just reference the prompt by a single word).
 - For best results, ensure the window you are capturing from has an aspect ratio similar to a square, the dc_capture will automatically resize the input to a square.
-
+- This has only been tested on Windows so far.
 
 </br></br></br>
 <div align="center">
