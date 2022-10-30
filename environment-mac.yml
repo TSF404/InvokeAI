@@ -50,7 +50,7 @@ dependencies:
       - send2trash==1.8.0
       - pywin32
       - pyautogui
-      - tkinter
+      - tk
       - test-tube==0.7.5
       - transformers==4.21.3
       - torch-fidelity==0.3.0
