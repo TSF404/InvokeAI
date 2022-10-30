@@ -23,6 +23,8 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 4. Give it a Session ID (any string that it will use to uniquely identify this session)
 5. On a seperate command window, repeat step 1 and 2 and run the command: _python scripts\dc_invoke.py_
 6. Ensure the Session ID entered matches both
+</br>-</br>
+
 
 #### How it Works
 
