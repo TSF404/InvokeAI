@@ -13,23 +13,40 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 
 #### Installation
 
-- Follow the installation guide below for regular InvokeAI except instead of _conda activate invokeai_, run _conda activate diffusioncraft_.
+- Follow the installation guide below for regular InvokeAI [following the Windows instructions](https://invoke-ai.github.io/InvokeAI/installation/INSTALL_WINDOWS/):
+</br> Installing anaconda
+</br> Cloning this repo
+</br> cd to repo
+</br> conda env create
+</br> Instead of _conda activate invokeai_, run _conda activate diffusioncraft_
+</br> Download the latest sd checkpoint into models/ldm/stable-diffusion-v1\model.ckpt (Ensure it's named model.ckpt)
+- Proceed to How to Use.
 
 #### How to Use
 
+<b>> Stage A. Launching the Capture & Display</b></br>
 1. cd to Project Directory
 2. Run the command _conda activate diffusioncraft_
 3. Then run the command: _python scripts\dc_capture.py_
 4. Give it a Session ID (any string that it will use to uniquely identify this session)
-5. On a seperate command window, repeat step 1 and 2 and run the command: _python scripts\dc_invoke.py_
-6. Ensure the Session ID entered matches both
+5. With the command prompt in focus, move your cursor to the top left corner of the window to capture and press enter.
+6. Repeat the same for the bottom right corner. This will define the boundaries of the region to capture. _Note: If you are running this on multiple screens, this might result in a black screen. You can check the screen capture results in the outputs/img2img folder._
+
+<b>> Stage B. Launching Stable Diffusion</b></br>
+1. cd to Project Directory
+2. Run the command _conda activate diffusioncraft_
+3. Then run the command: _python scripts\dc_invoke.py_
+4. Enter the same Session ID you used for Stage B.
+5. Enter a prompt key from the list.
 
 #### How it Works
 
-The dc_capture.py is responsible for both capturing screenshots from Minecraft, as well as displaying the latest image from Invoke's Stable Diffusion output.
-The dc_invoke.py is the main man in the middle, responsible for getting the screenshots captured from dc_capture, processing them through Stable Diffusion, and saving them.
-I've set it up so those two scripts can be run in any order when you begin.
-
+- There are two main scripts in this repo: scripts/dc_invoke.py and scripts/dc_capture.py
+- dc_capture is used to take a screen capture of the game window
+- dc_invoke searches for the newest screen capture in the outputs/img2img/{SESSION_ID}_<b>input</b> folder
+- When dc_invoke finds a new image, it runs it through Stable Diffusion via Invoke AI, and outputs it into the outputs/img2img/{SESSION_ID}_<b>output</b> folder
+- dc_capture also searches for the newest Stable Diffusion processed image in the outputs/img2img/{SESSION_ID}_<b>output</b> folder
+- When dc_capture finds a new image, it displays it via the tk library
 
 #### Additional Notes
 
@@ -37,7 +54,7 @@ I've set it up so those two scripts can be run in any order when you begin.
 - Session Identifier = Unique ID for Session (can be text / numbers)
 - Prompt Key = The key for a prompt. Stored in the settings.json file. Saves having to type the entire prompt out each time (just reference the prompt by a single word).
 - For best results, ensure the window you are capturing from has an aspect ratio similar to a square, the dc_capture will automatically resize the input to a square.
-
+- This has only been tested on Windows so far.
 
 </br></br></br>
 <div align="center">
