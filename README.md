@@ -14,11 +14,10 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 #### Installation
 
 - Follow the installation guide below for regular InvokeAI except instead of _conda activate invokeai_, run _conda activate diffusioncraft_.
-</br>
 
 #### How to Use
 
-<b>Stage A. Launching the Capture & Display</b></br>
+<b>> Stage A. Launching the Capture & Display</b></br>
 1. cd to Project Directory
 2. Run the command _conda activate diffusioncraft_
 3. Then run the command: _python scripts\dc_capture.py_
@@ -26,13 +25,12 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 5. With the command prompt in focus, move your cursor to the top left corner of the window to capture and press enter.
 6. Repeat the same for the bottom right corner. This will define the boundaries of the region to capture. _Note: If you are running this on multiple screens, this might result in a black screen. You can check the screen capture results in the output/img2img folder._
 
-<b>Stage B. Launching the Stable Diffusion</b></br>
+<b>> Stage B. Launching the Stable Diffusion</b></br>
 1. cd to Project Directory
 2. Run the command _conda activate diffusioncraft_
 3. Then run the command: _python scripts\dc_invoke.py_
 4. Enter the same Session ID you used for Stage B.
 5. Enter the prompt key from the list.
-</br>
 
 #### How it Works
 
