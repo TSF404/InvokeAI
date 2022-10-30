@@ -14,7 +14,7 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 #### Installation
 
 - Follow the installation guide below for regular InvokeAI except instead of _conda activate invokeai_, run _conda activate diffusioncraft_.
-
+</br>
 #### How to Use
 
 <b>Stage A. Launching the Capture & Display</b></br>
@@ -31,14 +31,13 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 3. Then run the command: _python scripts\dc_invoke.py_
 4. Enter the same Session ID you used for Stage B.
 5. Enter the prompt key from the list.
-
+</br>
 #### How it Works
 
 The dc_capture.py is responsible for both capturing screenshots from Minecraft, as well as displaying the latest image from Invoke's Stable Diffusion output.
 The dc_invoke.py is the main man in the middle, responsible for getting the screenshots captured from dc_capture, processing them through Stable Diffusion, and saving them.
 I've set it up so those two scripts can be run in any order when you begin.
-
-
+</br>
 #### Additional Notes
 
 - The settings to modify the prompts you choose between are in the settings.json file
