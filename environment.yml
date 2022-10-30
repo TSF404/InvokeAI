@@ -26,7 +26,6 @@ dependencies:
     - pyreadline3
     - pywin32
     - pyautogui
-    - PIL
     - tkinter
     - torch-fidelity==0.3.0
     - transformers==4.21.3
