@@ -14,12 +14,12 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 #### Installation
 
 - Follow the installation guide below for regular InvokeAI [following these instructions](https://invoke-ai.github.io/InvokeAI/installation/INSTALL_WINDOWS/):
--- Installing anaconda
--- Cloning this repo
--- cd to repo
--- conda env create
--- Instead of _conda activate invokeai_, run _conda activate diffusioncraft_.
--- Download the latest sd checkpoint into models/ldm/stable-diffusion-v1\model.ckpt (Ensure it's named model.ckpt)
+</br> Installing anaconda
+</br> Cloning this repo
+</br> cd to repo
+</br> conda env create
+</br> Instead of _conda activate invokeai_, run _conda activate diffusioncraft_.
+</br> Download the latest sd checkpoint into models/ldm/stable-diffusion-v1\model.ckpt (Ensure it's named model.ckpt)
 - Proceed to How to Use.
 
 #### How to Use
