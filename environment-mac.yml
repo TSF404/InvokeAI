@@ -1,4 +1,4 @@
-name: invokeai
+name: diffusioncraft
 channels:
   - pytorch
   - conda-forge
@@ -48,6 +48,10 @@ dependencies:
       - protobuf==3.19.6
       - realesrgan==0.2.5.0
       - send2trash==1.8.0
+      - pywin32
+      - pyautogui
+      - PIL
+      - tkinter
       - test-tube==0.7.5
       - transformers==4.21.3
       - torch-fidelity==0.3.0

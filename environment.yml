@@ -1,4 +1,4 @@
-name: invokeai
+name: diffusioncraft
 channels:
   - pytorch
   - defaults
@@ -24,6 +24,10 @@ dependencies:
     - pillow==9.2.0
     - einops==0.3.0
     - pyreadline3
+    - pywin32
+    - pyautogui
+    - PIL
+    - tkinter
     - torch-fidelity==0.3.0
     - transformers==4.21.3
     - torchmetrics==0.7.0
