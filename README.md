@@ -30,9 +30,9 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 3. Then run the command: _python scripts\dc_capture.py_
 4. Give it a Session ID (any string that it will use to uniquely identify this session)
 5. With the command prompt in focus, move your cursor to the top left corner of the window to capture and press enter.
-6. Repeat the same for the bottom right corner. This will define the boundaries of the region to capture. _Note: If you are running this on multiple screens, this might result in a black screen. You can check the screen capture results in the output/img2img folder._
+6. Repeat the same for the bottom right corner. This will define the boundaries of the region to capture. _Note: If you are running this on multiple screens, this might result in a black screen. You can check the screen capture results in the outputs/img2img folder._
 
-<b>> Stage B. Launching the Stable Diffusion</b></br>
+<b>> Stage B. Launching Stable Diffusion</b></br>
 1. cd to Project Directory
 2. Run the command _conda activate diffusioncraft_
 3. Then run the command: _python scripts\dc_invoke.py_
@@ -41,10 +41,12 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 
 #### How it Works
 
-The dc_capture.py is responsible for both capturing screenshots from Minecraft, as well as displaying the latest image from Invoke's Stable Diffusion output.
-The dc_invoke.py is the main man in the middle, responsible for getting the screenshots captured from dc_capture, processing them through Stable Diffusion, and saving them.
-I've set it up so those two scripts can be run in any order when you begin.
-</br>
+- There are two main scripts in this repo: scripts/dc_invoke.py and scripts/dc_capture.py
+- dc_capture is used to take a screen capture of the game window
+- dc_invoke searches for the newest screen capture in the outputs/img2img/{SESSION_ID}_input folder
+- When dc_invoke finds a new image, it runs it through Stable Diffusion via Invoke AI, and outputs it into the outputs/img2img/{SESSION_ID}_output folder
+- dc_capture also searches for the newest Stable Diffusion processed image in the outputs/img2img/{SESSION_ID}_output folder
+- When dc_capture finds a new image, it displays it via the tk library
 
 #### Additional Notes
 
