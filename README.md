@@ -17,6 +17,7 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 
 #### How to Use
 
+</br>Step 1. Launching the Capture</br>
 1. cd to Project Directory
 2. Run the command _conda activate diffusioncraft_
 3. Then run the command: _python scripts\dc_capture.py_
