@@ -19,6 +19,7 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 </br> cd to repo
 </br> conda env create
 </br> Instead of _conda activate invokeai_, run _conda activate diffusioncraft_
+</br> python scripts/preload_models.py
 </br> Download the latest sd checkpoint into models/ldm/stable-diffusion-v1\model.ckpt (Ensure it's named model.ckpt)
 - Proceed to How to Use.
 
