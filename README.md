@@ -13,13 +13,11 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 
 #### Installation
 
-- Follow the installation guide below for regular InvokeAI [following the Windows instructions](https://invoke-ai.github.io/InvokeAI/installation/INSTALL_WINDOWS/):
-</br> Installing anaconda
-</br> Cloning this repo
-</br> cd to repo
-</br> conda env create
-</br> Instead of _conda activate invokeai_, run _conda activate diffusioncraft_
-</br> Download the latest sd checkpoint into models/ldm/stable-diffusion-v1\model.ckpt (Ensure it's named model.ckpt)
+- First off: for the most optimal speed, ensure your device is cuda supported. [Download CUDA 11.6](https://developer.nvidia.com/cuda-11-6-1-download-archive).
+- This is a fork of InvokeAI. As such, you can simply follow the same installation guide that InvokeAI has written [here](https://invoke-ai.github.io/InvokeAI/installation/INSTALL_WINDOWS/).
+- When you reach step 6b, instead of _conda activate invokeai_, run _conda activate diffusioncraft_
+- Continue onwards with the installation guide.
+- Once complete, test if it is working by running the command _python scripts/invoke.py_ and then _a photo of an apple -n1 -s150 -S 123_
 - Proceed to How to Use.
 
 #### How to Use
