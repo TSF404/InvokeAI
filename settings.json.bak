@@ -12,16 +12,18 @@
     "bike": "a beautiful storybook painting of a vintage Schwinn bicycle with a basket of flowers on the front propped up against a wall, anime style by Grzegorz greg rutkowski and Studio Ghibli, nostalgic heart-warming, trending on artstation hq",
     "skull": "realistic skull with horns, portrait, powerful, intricate, elegant, volumetric lighting, scenery, digital painting, highly detailed, artstation, sharp focus, illustration, concept art, ruan jia, steve mccurry",
     "ladybug": "HD nature photography of ladybug",
+    "poolside": "isometric photo of a realistic sunlit cozy refreshing outdoor summer reflective indoors poolside lounge, 3d octane render, isometric angle",
     "puppet": "photo of a sock puppet, muppet, highly detailed, 4k",
     "mechanical": "complex 3 d render hyper detail portrait of a mechanical cyborg robot, sci fi, full body, intricate, art by kazuhiko nakamura and hajime sorayama, 8 k octane detailed render, post processing, extremely hyperdetailed, intricate futuristic mechanic parts, maya, dark background, sharp focus, blender, cinematic lighting masterpiece, trending on artstation ",
     "powerranger": "realistic full body, Portrait painting of Tom Hiddleston as Cyborg Power Ranger, made by Michaelangelo, physical painting, Sharp focus,digital art, bright colors,fine art, trending on Artstation, unreal engine",
     "live": "replace me with a prompt"
-
+ 
   },
   "defaultPromptKey": "crochet",
   "denoising": 0.54,
   "samples": 35,
+  "seed": 123457,
   "windowTargeting": false,
-  "captureInterval": 0.3
+  "captureInterval": 1
 
 }

@@ -54,6 +54,7 @@ def getInitSettings(): # -DC-
 
     chosenSamples = settingsJSONData['samples']
     chosenDenoising = settingsJSONData['denoising']
+    chosenSeed = settingsJSONData['seed']
     prompts = settingsJSONData['prompts']
     promptKeys = prompts.keys()
 
@@ -79,6 +80,7 @@ def getInitSettings(): # -DC-
             "prompt":chosenPrompt, 
             "denoising":chosenDenoising,
             "samples":chosenSamples,
+            "seed":chosenSeed,
             "inDir":chosenInDir, "outDir":chosenOutDir}
 
 def createInitDir(settings):
@@ -97,6 +99,7 @@ def getInvokeCommand(settings):  # command string
             settingsJSONData = json.load(open( os.getcwd() + "/settings.json"))
             settings['samples'] = settingsJSONData['samples']
             settings['denoising'] = settingsJSONData['denoising']
+            settings['seed'] = settingsJSONData['seed']
             settings['prompt'] = settingsJSONData['prompts'][settings['promptKey']]
             
         
@@ -108,6 +111,7 @@ def getInvokeCommand(settings):  # command string
         OUTPUT_FOLDER = settings["outDir"]+"_"+settings["sessionID"]
         SAMPLES = settings['samples']
         DENOISING = settings['denoising']
+        SEED = settings['seed']
         PROMPT = settings['prompt'].replace("-","").replace("+","")
         
         #print("Latest Image: " + latestInImageFileName)
@@ -117,7 +121,7 @@ def getInvokeCommand(settings):  # command string
         
         latestImg = latestInImageFileName
 
-        command = PROMPT + " -I " + INPUT_FILEPATH + " -o "+OUTPUT_FOLDER+" -s "+str(SAMPLES)+" -S 12345 -W512 -H512 --fit --strength " + str(DENOISING)
+        command = PROMPT + " -I " + INPUT_FILEPATH + " -o "+OUTPUT_FOLDER+" -s "+str(SAMPLES)+" -S "+str(SEED)+" -W512 -H512 --fit --strength " + str(DENOISING)
 
         return command
     except KeyboardInterrupt:
