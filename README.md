@@ -40,6 +40,13 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 4. Enter the same Session ID you used for Stage B.
 5. Enter a prompt key from the list.
 
+#### Minecraft-Specific Instructions
+
+To capture a timelapse-style video in Minecraft you will need to:
+1. Run two copies of minecraft and have them playing in the same world (either through server/LAN party).
+2. Position one player as the spectator looking at the creation. This is the screen you will target the dc_capture on.
+3. The other player/s will build the creation. The builder can observe and gain inspiration from what details Stable Diffusion adds in on the display window.
+
 #### How it Works
 
 - There are two main scripts in this repo: scripts/dc_invoke.py and scripts/dc_capture.py
