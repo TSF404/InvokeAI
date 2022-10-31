@@ -19,6 +19,7 @@ streamlit
 pyreadline3
 pywin32
 pyautogui
+pillow
 tk
 # "CompVis/taming-transformers" IS NOT INSTALLABLE
 # This is a drop-in replacement
