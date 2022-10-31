@@ -32,7 +32,7 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 4. Then run the command: _python scripts\dc_capture.py_
 5. Give it a Session ID (any string that it will use to uniquely identify this session)
 6. With the command prompt in focus, move your cursor to the top left corner of the window to capture and press enter.
-7. Repeat the same for the bottom right corner. This will define the boundaries of the region to capture. _Note: If you are running this on multiple screens, this might result in a black screen. You can check the screen capture results in the outputs/img2img folder._
+7. Repeat the same for the bottom right corner. This will define the boundaries of the region to capture. _Note: If you are running this on seperate screens, this might result in a black screen. You can check the screen capture results in the outputs/img2img folder._
 
 <b>> Stage B. Launching Stable Diffusion</b></br>
 1. Open another command prompt window

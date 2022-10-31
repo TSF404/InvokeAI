@@ -26,19 +26,21 @@ _This is a fork that uses InvokeAI to process Minecraft images at realtime_
 #### How to Use
 
 <b>> Stage A. Launching the Capture & Display</b></br>
-1. cd to Project Directory
-2. Run the command _conda activate diffusioncraft_
-3. Then run the command: _python scripts\dc_capture.py_
-4. Give it a Session ID (any string that it will use to uniquely identify this session)
-5. With the command prompt in focus, move your cursor to the top left corner of the window to capture and press enter.
-6. Repeat the same for the bottom right corner. This will define the boundaries of the region to capture. _Note: If you are running this on multiple screens, this might result in a black screen. You can check the screen capture results in the outputs/img2img folder._
+1. Open a command prompt window
+2. cd to Project Directory
+3. Run the command _conda activate diffusioncraft_
+4. Then run the command: _python scripts\dc_capture.py_
+5. Give it a Session ID (any string that it will use to uniquely identify this session)
+6. With the command prompt in focus, move your cursor to the top left corner of the window to capture and press enter.
+7. Repeat the same for the bottom right corner. This will define the boundaries of the region to capture. _Note: If you are running this on multiple screens, this might result in a black screen. You can check the screen capture results in the outputs/img2img folder._
 
 <b>> Stage B. Launching Stable Diffusion</b></br>
-1. cd to Project Directory
-2. Run the command _conda activate diffusioncraft_
-3. Then run the command: _python scripts\dc_invoke.py_
-4. Enter the same Session ID you used for Stage B.
-5. Enter a prompt key from the list.
+1. Open another command prompt window
+2. cd to Project Directory
+3. Run the command _conda activate diffusioncraft_
+4. Then run the command: _python scripts\dc_invoke.py_
+5. Enter the same Session ID you used for Stage B.
+6. Enter a prompt key from the list.
 
 #### Minecraft-Specific Instructions
 
